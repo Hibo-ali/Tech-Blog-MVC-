@@ -22,7 +22,10 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/new", withAuth, async (req, res) => {
-  res.render("create-post", { layout: "dashboard" });
+  res.render("create-post", { 
+    layout: "dashboard" 
+  
+  });
 });
 
 router.get("/edit/:id", withAuth, async (req, res) => {
@@ -32,7 +35,11 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     if (dbPostData) {
       const post = dbPostData.get({ plain: true });
 
-      res.render("edit-post", { layout: "dashboard", post });
+      res.render("edit-post", { 
+        layout: "dashboard", 
+        post 
+      
+      });
     }
   } catch (err) {
     res.redirect("login");

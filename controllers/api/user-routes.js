@@ -8,8 +8,8 @@ router.post("/", async (req, res) => {
 
     // Using express-session and connect-session-sequelize middleware
     req.session.save(() => {
-      req.session.loggedIn = true;
       req.session.userId = dbUserData.id;
+      req.session.loggedIn = true;
       req.session.username = dbUserData.username;
 
       res.json(dbUserData);
@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: "Incorrect username or password. Please try again!" });
+        .json({ message: "Incorrect login credentials. Please try again!" });
       return;
     }
 
@@ -46,9 +46,9 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.loggedIn = true;
       req.session.userId = dbUserData.id;
       req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
 
       res
         .status(200)

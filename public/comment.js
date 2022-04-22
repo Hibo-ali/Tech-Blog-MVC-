@@ -1,14 +1,8 @@
-const getComments = async () => {
-    const allComments = await fetch("/api/comments/", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    });
-    return allComments.json();
-  };
-  
-  const commentFormHandler = async (event) => {
+const commentFormHandler = async (event) => {
     event.preventDefault();
   
+    
+    
     const postId = document.querySelector("#post-id").value;
     const body = document.querySelector("#comment-input-post").value;
   
@@ -31,4 +25,17 @@ const getComments = async () => {
   document
     .querySelector("#comment-form")
     .addEventListener("submit", commentFormHandler);
+
+
+
+
+// const getComments = async () => {
+//     const allComments = await fetch("/api/comments/", {
+//       method: "GET",
+//       headers: { "Content-Type": "application/json" },
+//     });
+//     return allComments.json();
+//   };
+  
+  
   

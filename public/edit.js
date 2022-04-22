@@ -1,7 +1,9 @@
-const postId = document.querySelector("#post-id").value;
-
 const editFormHandler = async (event) => {
   event.preventDefault();
+
+
+  const postId = document.querySelector("#post-id").value;
+
 
   const title = document.querySelector("#title-input-post").value;
   const body = document.querySelector("#content-input-post").value;
@@ -32,3 +34,5 @@ document
 document
   .querySelector("#delete-btn")
   .addEventListener("click", deletePostHandler);
+
+
